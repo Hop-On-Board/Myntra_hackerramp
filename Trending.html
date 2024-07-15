@@ -1,0 +1,380 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Products</title>
+    <link rel="shortcut icon" type="image/png" href="../Common Files/image/favicon.png">
+    <link rel="stylesheet" href="../Common Files/style.css">
+    <link rel="stylesheet" href="../Common Files/homeLiving.css">
+    <script src="https://kit.fontawesome.com/24c494a6b6.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="../Common Files/image/myntra-removebg-preview.png" alt="brandLogo" id="landingPage">
+        </div>
+        <ul id="nav_bar">
+            <li><a href="../Homepages/menHomePage.html">men</a></li>
+            <li><a href="../Homepages/womenHomePage.html">women</a></li>
+            <li><a href="#">kids</a></li>
+            <li><a href="../Homepages/homeLiving.html">Home and Living</a></li>
+            <li><a href="/Homepages/Trending">TRENDING</a></li>
+            <li><a href="#">studio</a><span>new</span></li>
+        </ul>
+        <div id="search">
+            <input type="text" id="search_bar" placeholder="Search for products, brands and more" oninput="searchTrends()" />
+            <i class="fa-solid fa-magnifying-glass" id="search_icon" onclick="searchTrends()"></i>
+        </div>
+        <div id="right_icon">
+            <div id="reggDropdown">
+                <div id="drop">
+                    <a href="../Profile/profile.html" class="dropList">login</a>
+                    <a href="../Profile/signup.html" class="dropList">sign up</a>
+                </div>
+                <i class="fa-regular fa-user"></i>
+                <span>profile</span>
+            </div>
+            <div>
+                <i class="fa-regular fa-heart"></i>
+                <span>wishlist</span>
+            </div>
+            <div>
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>bag</span>
+            </div>
+        </div>
+    </header>
+
+    <div id="results"></div>
+
+    <script>
+        const initialTrends = [
+            {
+                name: "Puffer Jacket",
+                image_url: "https://img-new.cgtrader.com/items/3736362/ed194c5ae8/outfit-puffer-jacket-black-and-top-with-bike-shorts-3d-model-ed194c5ae8.jpg",
+                category: "Outerwear",
+                description: "Warm and stylish puffer jacket.",
+                price: 1000,
+                brand: "Brand Name",
+                trending_score: 85,
+                season: "Winter",
+                available_sizes: ["S", "M", "L"]
+            },
+            // Add more trend objects as needed
+            {
+                name: "Summer Dress",
+                image_url: "path/to/image2.jpg",
+                category: "Dresses",
+                description: "Light and breezy summer dress.",
+                price: 800,
+                brand: "Brand Name",
+                trending_score: 90,
+                season: "Summer",
+                available_sizes: ["S", "M", "L", "XL"]
+            },
+        ];
+
+        // Store initial trends in local storage
+        localStorage.setItem('trends', JSON.stringify(initialTrends));
+
+        function fetchTrends() {
+            const trends = JSON.parse(localStorage.getItem('trends')) || [];
+            return trends;
+        }
+
+        function displayTrends(trends) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            if (trends.length === 0) {
+                resultsDiv.innerHTML = '<p>No results found.</p>';
+                return;
+            }
+
+            trends.forEach(trend => {
+                const trendElement = document.createElement('div');
+                trendElement.classList.add('trend-item');
+                trendElement.innerHTML = `
+                    <img src="${trend.image_url}" alt="${trend.name}" />
+                    <h2>${trend.name}</h2>
+                    <p>Price: ₹${trend.price}</p>
+                `;
+                resultsDiv.appendChild(trendElement);
+            });
+        }
+
+        function searchTrends() {
+            const query = document.getElementById('search_bar').value.toLowerCase();
+            const trends = fetchTrends();
+            const filteredTrends = trends.filter(trend => trend.name.toLowerCase().includes(query));
+            displayTrends(filteredTrends);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchTrends(); // Load trends on initial load
+        });
+    </script>
+    
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home and Living - Buy Interior Decoration Products and Accessories Online in India</title>
+    <link rel="shortcut icon" type="image/png" href="../Common Files/image/favicon.png">
+    <link rel="stylesheet" href="../Common Files/style.css">
+    <link rel="stylesheet" href="../Common Files/homeLiving.css">
+    <script src="https://kit.fontawesome.com/24c494a6b6.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- MENU BAR -->
+    <header>
+        <div id="logo">
+            <img src="../Common Files/image/myntra-removebg-preview.png" alt="brandLogo" id="landingPage">
+        </div>
+        <ul id="nav_bar">
+            <li id="megamenu_container"><a href="../Homepages/menHomePage.html">men</a></li>
+            <li><a href="../Homepages/womenHomePage.html">women</a></li>
+            <li><a href="#">kids</a></li>
+            <li><a href="../Homepages/homeLiving.html">Home and Living</a></li>
+            <li><a href="/Homepages/Trending">TRENDING</a></li>
+            <li><a href="virtual4.html">Virtual trial room</a><span>new</span></li>
+            <li><a href="index (3).html">Cart</a><span>new</span></li>
+        </ul>
+        <div id="search">
+            <input type="text" id="search_bar" placeholder="Search for products, brands and more" oninput="searchTrends()" />
+            <i class="fa-solid fa-magnifying-glass" id="search_icon" onclick="searchTrends()"></i>
+        </div>
+        <div id="right_icon">
+            <div id="reggDropdown">
+                <div id="drop">
+                    <a href="../Profile/profile.html" class="dropList">login</a>
+                    <a href="../Profile/signup.html" class="dropList">sign up</a>
+                </div>
+                <i class="fa-regular fa-user"></i>
+                <span>profile</span>
+            </div>
+            <div>
+                <i class="fa-regular fa-heart"></i>
+                <span>wishlist</span>
+            </div>
+            <div>
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>bag</span>
+            </div>
+        </div>
+        <div id="toggle">
+            <i class='bx bx-menu dropbtn' onclick="myFunction()"></i>
+            <div id="myDropdown" class="dropdown-content">
+                <div class="top">
+                    <a href="../Homepages/menHomePage.html">men</a>
+                    <a href="../Homepages/womenHomePage.html">women</a>
+                    <a href="#">kids</a>
+                    <a href="../Homepages/homeLiving.html">home & living</a>
+                    <a href="virtual4.html">Virtual trial room</a>
+                    
+                </div>
+                <div class="bottom">
+                    <i class="fa-regular fa-user fa_user" id="profile"></i>
+                    <i class="fa-regular fa-heart fa_wishlist"></i>
+                    <i class="fa-solid fa-bag-shopping fa_cart"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="results"></div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        const initialTrends = [
+            {
+                name: "Puffer Jacket",
+                image_url: "https://img-new.cgtrader.com/items/3736362/ed194c5ae8/outfit-puffer-jacket-black-and-top-with-bike-shorts-3d-model-ed194c5ae8.jpg",
+                category: "Outerwear",
+                description: "Warm and stylish puffer jacket.",
+                price: 1000,
+                brand: "LV",
+                trending_score: 85,
+                season: "Winter",
+                available_sizes: ["S", "M", "L"],
+                eco_points: 1000
+
+            },
+            // Add more trend objects as needed
+        ];
+
+        function storeTrends() {
+            localStorage.setItem('trends', JSON.stringify(initialTrends));
+        }
+
+        function getTrendsFromLocalStorage() {
+            const trends = localStorage.getItem('trends');
+            return trends ? JSON.parse(trends) : [];
+        }
+
+        function searchTrends() {
+            const query = document.getElementById('search_bar').value;
+            if (query.trim() !== '') {
+                fetchTrends(query);
+            } else {
+                document.getElementById('results').innerHTML = ''; // Clear results if search is empty
+            }
+        }
+
+        function fetchTrends(search = '') {
+            console.log('Fetching trends with search:', search);
+            const trends = getTrendsFromLocalStorage();
+            const filteredTrends = trends.filter(trend =>
+                trend.name.toLowerCase().includes(search.toLowerCase())
+            );
+            console.log('Filtered trends:', filteredTrends);
+            displayTrends(filteredTrends);
+        }
+
+        function displayTrends(trends) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            if (trends.length === 0) {
+                resultsDiv.innerHTML = '<p>No results found.</p>';
+                return;
+            }
+
+            trends.forEach(trend => {
+                const trendElement = document.createElement('div');
+                trendElement.classList.add('trend-item');
+                trendElement.innerHTML = `
+                    <img src="${trend.image_url}" alt="${trend.name}" class="trend-image" onclick="toggleDetails('${trend.name}')" />
+                    <h2 onclick="toggleDetails('${trend.name}')">${trend.name}</h2>
+                `;
+                resultsDiv.appendChild(trendElement);
+            });
+        }
+
+        function toggleDetails(name) {
+            const trends = getTrendsFromLocalStorage();
+            const trend = trends.find(t => t.name === name);
+            if (!trend) {
+                alert('Trend details not found.');
+                return;
+            }
+
+            const modal = document.getElementById("myModal");
+            const modalBody = document.getElementById("modal-body");
+            modalBody.innerHTML = `
+                <h2>${trend.name}</h2>
+              
+                <p>Category: ${trend.category || 'N/A'}</p>
+                <p>Description: ${trend.description || 'N/A'}</p>
+                <p class="trend-price">Price: ₹${trend.price || 'N/A'}</p>
+                <p>Brand: ${trend.brand || 'N/A'}</p>
+                <p>Season: ${trend.season || 'N/A'}</p>
+                <p>Available Sizes: ${trend.available_sizes.join(', ') || 'N/A'}</p>
+                <p>Eco Points: ${trend.eco_points || 'N/A'}</p>
+            `;
+            modal.style.display = "block";
+
+            const span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            storeTrends();
+        });
+    </script>
+
+    <style>
+        /* Add your CSS styles here */
+        
+    .trend-image {
+        width: 800px; /* Set the desired width */
+        height: auto; /* Maintain the aspect ratio */
+    }
+
+    .trend-item{
+        display: inline-block;
+        margin: 10px; 
+        text-align: center; 
+    }
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .trend-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .trend-item img {
+            max-width: 100%;
+            cursor: pointer;
+        }
+
+        .trend-item h2 {
+            cursor: pointer;
+        }
+    </style>
+
+</body>
+</html>

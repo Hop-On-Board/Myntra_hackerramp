@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Clone (Eco Points & Virtual Try-On)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .product-listing, .cart {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .product-card {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .product-card h3, .product-card p {
+            margin: 10px 0;
+        }
+        .try-on {
+            margin-top: 10px;
+        }
+        .price, .eco-points, .amount-to-pay {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .btn-continue-to-pay, .product-card button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #ff3f6c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-continue-to-pay:hover, .product-card button:hover {
+            background-color: #e33e5a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MYNTRA</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Eco Points</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-listing">
+            <h2>Products</h2>
+            <div class="product-card">
+                <img src="https://img-new.cgtrader.com/items/3865476/070139e329/large/free-lowpoly-jacket-3d-model-low-poly-obj-fbx-stl-blend-gltf.jpg" alt="Leather Jacket">
+                <h3>Leather Jacket</h3>
+                <div class="product-info">
+                    <div class="price">Price: ₹1000</div>
+                    <div class="eco-points">Total Eco Points: 250</div>
+                    <div class="amount-to-pay">Amount to Pay: ₹750</div>
+                </div>
+                <button class="btn-continue-to-pay">Continue to Pay</button>
+                <div class="try-on">
+                    <button>Upload Photo & Try On</button>
+                    <p>Earn 10 Eco Points</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cart">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <p>Total Eco Points Earned: <span id="total-eco-points">250</span></p>
+        </section>
+    </main>
+
+    <script>
+        const originalPrice = 1000;
+        const ecoPoints = 250;
+        const discount = ecoPoints; // Assuming 1 eco point = ₹1 discount
+        const amountToPay = originalPrice - discount;
+
+        document.querySelector('.price').innerText = Price: ₹${originalPrice};
+        document.querySelector('.eco-points').innerText = Total Eco Points: ${ecoPoints};
+        document.querySelector('.amount-to-pay').innerText = Amount to Pay: ₹${amountToPay};
+
+        document.querySelector('.btn-continue-to-pay').addEventListener('click', () => {
+            alert(Leather Jacket added to cart! \n\nOriginal Price: ₹${originalPrice} \nEco Points: ${ecoPoints} \nAmount to Pay: ₹${amountToPay});
+        });
+
+        const cartItems = document.getElementById('cart-items');
+        const totalEcoPoints = document.getElementById('total-eco-points');
+        let ecoPointsEarned = 0;
+
+        document.querySelector('.product-card button').addEventListener('click', function() {
+            const productName = this.parentElement.querySelector('h3').innerText;
+            const productPrice = this.parentElement.querySelector('p').innerText;
+            ecoPointsEarned += 10;
+
+            const cartItem = document.createElement('div');
+            cartItem.innerText = ${productName} - ${productPrice};
+            cartItems.appendChild(cartItem);
+            
+            totalEcoPoints.innerText = ecoPointsEarned;
+        });
+    </script>
+</body>
+</html>

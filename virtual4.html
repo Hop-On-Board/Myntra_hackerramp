@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Clone</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 28px;
+            color: #ff3e6c;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .search-bar {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 250px;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        .virtual-trial {
+            width: 60%;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        .virtual-trial h2 {
+            margin-top: 0;
+            color: #ff3e6c;
+        }
+
+        .buttons {
+            margin: 15px 0;
+        }
+
+        .buttons .upload-photo,
+        .buttons .use-camera {
+            background-color: #ff3e6c;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .image-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .share-look {
+            background-color: #ff3e6c;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .cart-items {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        .cart-items h3 {
+            margin-top: 0;
+            color: #ff3e6c;
+        }
+
+        .cart-items .item-list {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cart-items .item {
+            width: 48%;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-items .item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .cart-items .item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        aside {
+            width: 35%;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        aside h3 {
+            margin-top: 0;
+            color: #ff3e6c;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            bottom: 0;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #333;
+            margin-right: 20px;
+            font-size: 16px;
+        }
+
+        footer .social-media a {
+            font-size: 24px;
+            margin-left: 20px;
+            color: #ff3e6c;
+        }
+
+        #camera {
+            display: none;
+            margin: 20px 0;
+        }
+
+        #camera video, #camera canvas {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Myntra</h1>
+            <nav>
+                <a href="menHomePage.html">Men</a>
+                <a href="womenHomePage.html">Women</a>
+                <a href="#">Kids</a>
+                <a href="homeLiving.html">Home & Living</a>
+                <a href="#">Beauty</a>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for products">
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="virtual-trial">
+                <h2>Virtual Trial</h2>
+                <div class="buttons">
+                    <button class="upload-photo">Upload Photo</button>
+                    <button class="use-camera" onclick="activateCamera()">Use Camera</button>
+                </div>
+                <div class="image-section">
+                    <img src="path/to/your/image.jpg" alt="Virtual Trial" id="capturedImage">
+                </div>
+                <div id="camera">
+                    <video id="video" autoplay></video>
+                    <button onclick="captureImage()">Capture Image</button>
+                    <canvas id="canvas" style="display:none;"></canvas>
+                </div>
+                <button class="share-look">Share Look</button>
+                <div class="cart-items">
+                    <h3>Your Cart Items</h3>
+                    <div class="item-list">
+                        <div class="item" onclick="selectItem('C:\Users\KIIT\Desktop\EcoChic\jacket.jpg')">
+                            <img src="C:\Users\KIIT\Desktop\EcoChic\jacket.jpg" alt="Cart Item 1">
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            <aside>
+                <div class="eco-points">
+                    <h3>Eco-Points</h3>
+                    <p>Earn eco-points by shopping with GreenChic and using our Virtual Trial Room. Eco-points can be redeemed for discounts and special offers.</p>
+                </div>
+                <div class="earn-eco-points">
+                    <h3>How to Earn Eco-Points</h3>
+                    <ul>
+                        <li>Upload a photo and try on outfits: 10 points</li>
+                        <li>Make a purchase: 50 points</li>
+                        <li>Share your look on social media: 20 points</li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+        <footer>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <div class="social-media">
+                <a href="#">&#x1F4F1;</a>
+                <a href="#">&#x1F426;</a>
+                <a href="#">&#x1F4F7;</a>
+            </div>
+        </footer>
+    </div>
+    <script>
+        function activateCamera() {
+            const video = document.getElementById('video');
+            const camera = document.getElementById('camera');
+            camera.style.display = 'block';
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.srcObject = stream;
+                    video.play();
+                })
+                .catch(err => {
+                    console.error("Error accessing the camera: " + err);
+                });
+        }
+
+        function captureImage() {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const capturedImage = document.getElementById('capturedImage');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            capturedImage.src = canvas.toDataURL('image/png');
+            video.srcObject.getTracks().forEach(track => track.stop());
+            document.getElementById('camera').style.display = 'none';
+        }
+
+        function selectItem(imagePath) {
+            const capturedImage = document.getElementById('capturedImage');
+            capturedImage.src = imagePath;
+        }
+    </script>
+</body>
+</html>
